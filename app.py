@@ -8,6 +8,14 @@ from models import *
 app = Flask(__name__)
 app.secret_key = "I like fried rice"
 
+if not os.getenv("DATABASE_URL"):
+    raise RuntimeError("DATABASE_URL is not set")
+
+app.config["SESSION_TYPE"] = "filesystem"
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 # API key and other constants
 key = "gSIbgf3YPonMEzxGvXOCg"
 secret = 'enC3XCPgdy3IcRn3kejOaFeX2smblGIScNuaqFcQBw'
@@ -17,7 +25,7 @@ tag = "Don't judge a book by its cover, judge it by the reviews."
 
 @app.route("/")
 def index():
-    # session['cur_user'] = None
+    session['cur_user'] = None
     return render_template("landing.html", heading=heading, tag=tag)
 
 
