@@ -17,7 +17,7 @@ tag = "Don't judge a book by its cover, judge it by the reviews."
 
 @app.route("/")
 def index():
-    session['cur_user'] = None
+    # session['cur_user'] = None
     return render_template("landing.html", heading=heading, tag=tag)
 
 
