@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block body %}
+<div class="d-flex justify-content-left">
+    <form action="{{ url_for('login') }}" >
+        <button type="submit" class="btn btn-primary mx-1">Login</button>
+    </form>
+    <form action="{{ url_for('register') }}">
+        <button type="submit" class="btn btn-info mx-1">Register</button>
+    </form>
+</div>
+   
+
+{%endblock%}

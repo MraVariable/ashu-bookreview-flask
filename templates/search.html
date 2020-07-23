@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block body %}
+<div class="col-12">
+    {% include "home.html" %}
+</div>
+</div>
+<div class="d-flex justify-content-spaced">
+    <form class="form-horizontal" action="{{ url_for('results') }}">
+    <div class="form-group">
+    <label class="control-label col-sm-12" for="term">Search For a book:</label>
+    <div class="col-sm-12">
+      <input type="text" id="term" name="term" class="form-control" placeholder="Enter term to search">
+    </div>
+  </div>
+   <div class="form-group col-sm-12">
+   <label class="control-label col-sm-12" for="searchby">Search In:</label>
+            <select name="searchby" class="form-control" >
+                
+                    <option value="Author">Author</option>
+                    <option value="ISBN">ISBN</option>
+                    <option value="Title">Title</option>
+                
+            </select>
+        </div>
+  <div class="form-group">
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-12">
+      <button type="submit" name="submit" value="submit" class="btn btn-info">Search</button>
+    </div>
+  </div>
+</form>
+</div>
+      {% endblock %}
