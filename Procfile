@@ -1,1 +1,1 @@
-web: gunicorn bookreview.app --log-file -
+web: gunicorn app:app --log-file=-
